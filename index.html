@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generador de nombres para mascotas, bebés poco comunes y nicks de gaming. Encuentra el nombre perfecto para tu perro, gato, bebé o tu próximo nick de Fortnite, Roblox y Free Fire.">
+    <meta name="keywords" content="generador nombres, nombres perros, nombres gatos, nombres bebés, nicks gaming, nombres fortnite, nombres roblox, nombres free fire">
+    <meta name="author" content="Generador de Nombres">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Generador de Nombres - Mascotas, Bebés y Gaming">
+    <meta property="og:description" content="Genera nombres únicos para mascotas, bebés poco comunes y nicks de gaming. 100% gratis y privado.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Generador de Nombres - Mascotas, Bebés y Gaming">
+    <meta name="twitter:description" content="Genera nombres únicos para mascotas, bebés poco comunes y nicks de gaming.">
+    
+    <title>Generador de Nombres | Mascotas, Bebés y Nicks Gaming</title>
+    
+    <link rel="canonical" href="https://generador-nombres.github.io/">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">NombreGen</span>
+            </a>
+            <nav class="nav" aria-label="Navegación principal">
+                <a href="#mascotas" class="nav-link">Mascotas</a>
+                <a href="#bebes" class="nav-link">Bebés</a>
+                <a href="#gaming" class="nav-link">Gaming</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Genera el <span class="gradient-text">nombre perfecto</span></h1>
+                <p class="hero-subtitle">Para tu mascota, tu bebé o tu próximo nick de gaming. Miles de opciones únicas, 100% privado.</p>
+                
+                <!-- Quick Category Selection -->
+                <div class="category-grid">
+                    <button class="category-card" data-category="perros" aria-label="Nombres para perros">
+                        <span class="category-icon">🐕</span>
+                        <span class="category-name">Perros</span>
+                    </button>
+                    <button class="category-card" data-category="gatos" aria-label="Nombres para gatos">
+                        <span class="category-icon">🐱</span>
+                        <span class="category-name">Gatos</span>
+                    </button>
+                    <button class="category-card" data-category="bebes" aria-label="Nombres para bebés">
+                        <span class="category-icon">👶</span>
+                        <span class="category-name">Bebés</span>
+                    </button>
+                    <button class="category-card" data-category="fortnite" aria-label="Nicks para Fortnite">
+                        <span class="category-icon">🎮</span>
+                        <span class="category-name">Fortnite</span>
+                    </button>
+                    <button class="category-card" data-category="roblox" aria-label="Nicks para Roblox">
+                        <span class="category-icon">🧱</span>
+                        <span class="category-name">Roblox</span>
+                    </button>
+                    <button class="category-card" data-category="freefire" aria-label="Nicks para Free Fire">
+                        <span class="category-icon">🔥</span>
+                        <span class="category-name">Free Fire</span>
+                    </button>
+                    <button class="category-card" data-category="nicks" aria-label="Nicks genéricos">
+                        <span class="category-icon">🎯</span>
+                        <span class="category-name">Nicks</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Generator Section -->
+        <section class="generator" id="generador">
+            <div class="container">
+                <div class="generator-panel">
+                    <div class="generator-header">
+                        <h2 class="generator-title" id="generator-title">Selecciona una categoría</h2>
+                        <p class="generator-desc" id="generator-desc">Elige arriba el tipo de nombre que necesitas</p>
+                    </div>
+                    
+                    <!-- Filters -->
+                    <div class="filters" id="filters" hidden>
+                        <div class="filter-group" id="filter-sex">
+                            <label class="filter-label">Sexo</label>
+                            <div class="filter-options">
+                                <button class="filter-btn active" data-filter="sex" data-value="all">Todos</button>
+                                <button class="filter-btn" data-filter="sex" data-value="male">Macho/Niño</button>
+                                <button class="filter-btn" data-filter="sex" data-value="female">Hembra/Niña</button>
+                                <button class="filter-btn" data-filter="sex" data-value="neutral">Neutro</button>
+                            </div>
+                        </div>
+                        <div class="filter-group" id="filter-style" hidden>
+                            <label class="filter-label">Estilo</label>
+                            <div class="filter-options" id="style-options">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Results -->
+                    <div class="results" id="results">
+                        <div class="results-placeholder">
+                            <span class="placeholder-icon">👆</span>
+                            <p>Selecciona una categoría para empezar</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Actions -->
+                    <div class="actions" id="actions" hidden>
+                        <button class="btn btn-primary btn-large" id="btn-generate">
+                            <span class="btn-icon">🎲</span>
+                            Generar más nombres
+                        </button>
+                        <button class="btn btn-secondary" id="btn-copy-all">
+                            <span class="btn-icon">📋</span>
+                            Copiar todos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Landing Sections -->
+        <section class="seo-section" id="mascotas">
+            <div class="container">
+                <h2 class="section-title">Nombres para Mascotas</h2>
+                <p class="section-desc">Encuentra el nombre ideal para tu nuevo compañero peludo. Tenemos cientos de opciones para perros y gatos de todas las personalidades.</p>
+                
+                <div class="seo-grid">
+                    <article class="seo-card" id="nombres-perros">
+                        <div class="seo-card-icon">🐕</div>
+                        <h3>Nombres para Perros</h3>
+                        <p>Desde nombres clásicos como Max y Luna hasta opciones únicas como Nébula o Thor. Encuentra el nombre que mejor represente a tu mejor amigo.</p>
+                        <ul class="seo-list">
+                            <li>Nombres según tamaño y raza</li>
+                            <li>Opciones divertidas y originales</li>
+                            <li>Nombres con significado especial</li>
+                        </ul>
+                        <button class="btn btn-outline" data-category="perros">Generar nombres de perro</button>
+                    </article>
+                    
+                    <article class="seo-card" id="nombres-gatos">
+                        <div class="seo-card-icon">🐱</div>
+                        <h3>Nombres para Gatos</h3>
+                        <p>Tu felino merece un nombre a la altura de su elegancia. Explora nombres misteriosos, tiernos o con carácter para tu gato.</p>
+                        <ul class="seo-list">
+                            <li>Nombres elegantes y sofisticados</li>
+                            <li>Opciones juguetonas y divertidas</li>
+                            <li>Inspirados en la mitología</li>
+                        </ul>
+                        <button class="btn btn-outline" data-category="gatos">Generar nombres de gato</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="seo-section seo-section-alt" id="bebes">
+            <div class="container">
+                <h2 class="section-title">Nombres para Bebés Poco Comunes</h2>
+                <p class="section-desc">¿Buscas un nombre único para tu bebé? Nuestra colección incluye nombres bonitos, originales y con significados especiales que destacarán.</p>
+                
+                <div class="seo-single">
+                    <article class="seo-card seo-card-wide" id="nombres-bebes">
+                        <div class="seo-card-icon">👶</div>
+                        <h3>Nombres Únicos y Poco Comunes</h3>
+                        <p>Descubre nombres que no escucharás en cada parque. Opciones elegantes, modernas y con personalidad para niños y niñas.</p>
+                        <div class="seo-features">
+                            <div class="feature">
+                                <span class="feature-icon">✨</span>
+                                <span>Nombres originales</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">🌍</span>
+                                <span>De diversas culturas</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">💫</span>
+                                <span>Significados especiales</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" data-category="bebes">Generar nombres de bebé</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="seo-section" id="gaming">
+            <div class="container">
+                <h2 class="section-title">Nicks para Gaming</h2>
+                <p class="section-desc">Destaca en tus juegos favoritos con un nick único y memorable. Opciones para Fortnite, Roblox, Free Fire y más.</p>
+                
+                <div class="seo-grid seo-grid-3">
+                    <article class="seo-card" id="nombres-fortnite">
+                        <div class="seo-card-icon">🎮</div>
+                        <h3>Nicks para Fortnite</h3>
+                        <p>Nicks épicos y originales para destacar en la isla. Desde opciones agresivas hasta nombres divertidos.</p>
+                        <button class="btn btn-outline" data-category="fortnite">Generar nick Fortnite</button>
+                    </article>
+                    
+                    <article class="seo-card" id="nombres-roblox">
+                        <div class="seo-card-icon">🧱</div>
+                        <h3>Nicks para Roblox</h3>
+                        <p>Nombres creativos perfectos para el universo de Roblox. Únicos y fáciles de recordar.</p>
+                        <button class="btn btn-outline" data-category="roblox">Generar nick Roblox</button>
+                    </article>
+                    
+                    <article class="seo-card" id="nombres-freefire">
+                        <div class="seo-card-icon">🔥</div>
+                        <h3>Nicks para Free Fire</h3>
+                        <p>Nicks con estilo para Free Fire. Incluye opciones con símbolos y caracteres especiales.</p>
+                        <button class="btn btn-outline" data-category="freefire">Generar nick Free Fire</button>
+                    </article>
+                </div>
+                
+                <div class="seo-extra">
+                    <article class="seo-card" id="nicks-genericos">
+                        <div class="seo-card-icon">🎯</div>
+                        <h3>Nicks Genéricos para Gaming</h3>
+                        <p>Nicks versátiles que funcionan en cualquier plataforma: Steam, Discord, Twitch, Xbox, PlayStation y más.</p>
+                        <button class="btn btn-outline" data-category="nicks">Generar nick genérico</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ad Slot -->
+        <aside class="ad-container">
+            <div class="container">
+                <div class="ad-slot" data-ad="banner-mid">
+                    <!-- Ad placeholder -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Affiliate Section (empty for now) -->
+        <section class="affiliate-section" id="productos">
+            <div class="container">
+                <h2 class="section-title">Productos Recomendados</h2>
+                <p class="section-desc">Próximamente: los mejores productos para tu mascota.</p>
+                <div class="affiliate-placeholder">
+                    <span class="placeholder-icon">🛍️</span>
+                    <p>Espacio reservado para productos afiliados</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Note -->
+        <section class="privacy-note">
+            <div class="container">
+                <div class="privacy-card">
+                    <span class="privacy-icon">🔒</span>
+                    <div class="privacy-content">
+                        <h3>Tu privacidad es importante</h3>
+                        <p>Este generador funciona 100% en tu navegador. <strong>Ningún dato sale de tu dispositivo</strong>. No usamos cookies de seguimiento ni almacenamos información personal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">✨</span>
+                    <span class="logo-text">NombreGen</span>
+                    <p class="footer-tagline">Generador de nombres gratuito y privado</p>
+                </div>
+                <nav class="footer-nav">
+                    <div class="footer-col">
+                        <h4>Mascotas</h4>
+                        <a href="#nombres-perros">Nombres para perros</a>
+                        <a href="#nombres-gatos">Nombres para gatos</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Bebés</h4>
+                        <a href="#nombres-bebes">Nombres poco comunes</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Gaming</h4>
+                        <a href="#nombres-fortnite">Nicks Fortnite</a>
+                        <a href="#nombres-roblox">Nicks Roblox</a>
+                        <a href="#nombres-freefire">Nicks Free Fire</a>
+                        <a href="#nicks-genericos">Nicks genéricos</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NombreGen. Hecho con ❤️ para hispanohablantes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+    <script src="js/names.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
